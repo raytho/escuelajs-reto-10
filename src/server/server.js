@@ -9,7 +9,6 @@ const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.static(`${__dirname}/public`));
-
 if (ENV === 'development') {
   console.log('Loading dev config');
   const webpackConfig = require('../../webpack.config');
@@ -30,7 +29,7 @@ if (ENV === 'development') {
 
 app.get('*', main);
 
-app.listen(PORT, (err) => {
+app.listen(PORT, err => {
   if (err) console.log(err);
   console.log(`Server runding on ${PORT}`);
 });
